@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  audio-transcription-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3333:3000"
+    volumes:
+      - ./app:/app/app
+      - ./public:/app/public
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped
